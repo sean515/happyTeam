@@ -39,7 +39,7 @@
 			<mvc:mapping path="/answer/answerWrite"/>
 			<mvc:mapping path="/answer/answerReplyWrite/{no}"/>
 			
-			<bean class="com.multi.campus.LoginInterceptor"></bean>
+			<bean class="com.meal.happy.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	

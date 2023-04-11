@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>행복한끼메인</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="/happy/inc/style.css" type="text/css"/>
 <script src="/happy/inc/script.js"></script>
@@ -17,12 +17,12 @@
 	<div class="menu">
 		<ul>
 			<c:if test="${logStatus!='Y'}">
-				<li><a href="/happy/login/loginHome">로그인</a></li>
-				<li><a href="/happy/join/joinHome">회원가입</a></li>
+				<li><a href="/happy/loginForm">로그인</a></li>
+				<li><a href="/happy/join">회원가입</a></li>
 			</c:if>
 			<c:if test="${logStatus=='Y'}">	
 				<li>${logName }<a href="/happy/logout">로그아웃</a></li>
-				<li><a href="/happy/register">마이페이지</a></li>
+				<li><a href="/happy/joinEdit">마이페이지</a></li>
 			</c:if>
 			<li><a href="/happy/res"></a>식당검색</li>
 			<li><a href="/happy/menu">식단</a></li>
