@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+/* 폰트 */
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
 .desc{
 	border:1px solid gray;
 	padding:30px;
@@ -16,28 +21,37 @@ body, ul, li{
 
 a:link, a:visited, a:hover{
 	text-decoration:none;
-	color:yellow;
+	color:#00AD7C;
 }
 
-.container, .menu{
+.container{
 	width:1000px;
 	margin:0 auto;
 }
 
 /*헤더*/
 header{
-	background:#00f;
-	color:#fff;
+	background:#FFF8B5;
+	color:#3C6E57;
 }
+
 .logo{
+	width:130px;
+	height:50px;
+	margin:0;
 	text-align:center;
-	font-size:3em;
-	padding:50px 0;
+	font-size:35px;	
 }
-.menu>ul{
+
+.category{
+	margin:0;
+}
+.category>ul{
+	width:1200px;
+	height:50px;
 	overflow:auto;
 }
-.menu li{
+.category li{
 	float:left;
 	text-align:center;
 	font-size:1.2em;
@@ -45,9 +59,10 @@ header{
 	height:40px;
 	line-height:40px;
 }
+
 /*푸터*/
 footer{
-	background:#ddd;
+	background:#B5FF7D;
 	padding:30px 0;
 	text-align:center;
 	margin-top:50px;
