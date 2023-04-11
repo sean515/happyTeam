@@ -2,13 +2,10 @@ package com.meal.happy.controller;
 
 import java.util.List;
 
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,8 +24,6 @@ public class RegisterController {
 	@Autowired
 	RegisterService service;
 	
-	@Autowired
-	JavaMailSenderImpl mailSender;
 	//로그인폼
 	@GetMapping("/loginForm")
 	public String login() {
@@ -148,39 +143,4 @@ public class RegisterController {
 		return "register/idSearchForm";
 	}
 	
-	@PostMapping("idSearchEmailSend")
-	@ResponseBody
-	public String idSearchEmailSend(RegisterDTO dto) {
-		
-		//이름과 이메일이 일치하는 회원의 아이디
-		String userid = service.idSearch(dto.getUsername(), dto.getEmail());
-		if(userid==null || userid.equals("")) {//아이디 없으면 존재하지 않는 정보
-			return "N";
-		}else {//아이디가 있으면
-			//DB조회한 아이디를 이메일로 보내고 메일보냈다는 정보를 알려준다.
-			String emailSubject = "아이디 찾기 결과";
-			String emailContent = "<div style='background:pink; margin:50px; padding:50px; border:2px solid gray; font-size:2em; text-align:center;'>";
-			emailContent += "검색한 아이디입니다.<br/>";
-			emailContent += "아이디 : <b>"+userid+"</b>";
-			emailContent += "</div>";
-			
-			try {
-				//mimeMessage -> mimeMessageHelper
-				MimeMessage message = mailSender.createMimeMessage();
-				MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
-				
-				//보내는 메일주소
-				messageHelper.setFrom("tlgjs4169@naver.com");
-				messageHelper.setTo("tlgjs4169@gmail.com");
-				messageHelper.setSubject(emailSubject);
-				messageHelper.setText("text/html; charset=UTF-8", emailContent);
-				
-				mailSender.send(message);//보내기
-				return "Y";
-			}catch(Exception e) {
-				e.printStackTrace();
-				return "N";
-			}
-		}
-	}
 }

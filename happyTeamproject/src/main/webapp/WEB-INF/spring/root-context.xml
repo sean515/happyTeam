@@ -32,6 +32,6 @@
 	-->
 	
 	
-	<mybatis-spring:scan base-package="com.multi.campus.dao"/>
+	<mybatis-spring:scan base-package="com.meal.happy.dao"/>
 		
 </beans>
