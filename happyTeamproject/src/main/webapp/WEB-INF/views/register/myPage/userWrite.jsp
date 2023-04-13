@@ -12,7 +12,7 @@
 				
 				식단&emsp;&ensp;&nbsp; | &nbsp;봄 당뇨 식단<hr class="hr3"/>
 				식단&emsp;&ensp;&nbsp; | &nbsp;봄 당뇨 식단<hr class="hr3"/><br/><hr class="hr3"/>
-				
+				 
 				레시피&ensp;&nbsp; | &nbsp;누룽지 두부 계란죽<hr class="hr3"/>
 				레시피&ensp;&nbsp; | &nbsp;누룽지 두부 계란죽<hr class="hr3"/>
 			</li>

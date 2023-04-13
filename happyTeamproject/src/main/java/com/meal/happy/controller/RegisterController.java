@@ -172,7 +172,7 @@ public class RegisterController {
 	@GetMapping("/myPage/userWrite")
 	public String userWriteForm() {
 		return "register/myPage/userWrite";
-	}
+	} 
 	// 내가 작성한 댓글
 	@GetMapping("/myPage/userWriteReply")
 	public String userWriteReplyForm() {

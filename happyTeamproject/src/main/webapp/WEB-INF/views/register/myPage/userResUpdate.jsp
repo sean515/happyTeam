@@ -12,7 +12,7 @@
 		   		
 		   		수정 | &nbsp;서울 관악구&nbsp; | &nbsp;할랄푸드 전문점&nbsp; | &nbsp;승인 대기 중<hr class="hr3"/>
 		   		수정 | &nbsp;서울 강남구&nbsp; | &nbsp;샐러드 전문점&nbsp; | &nbsp;승인 대기 중<hr class="hr3"/><br/><hr class="hr3"/>
-		   		
+		   		 
 		   		삭제 | &nbsp;서울 강남구&nbsp; | &nbsp;샐러드 전문점&nbsp; | &nbsp;승인 대기 중<hr class="hr3"/>
 			</li>
 		</ul>

@@ -15,3 +15,4 @@ public interface RegisterService {
 	public String idSearch(String username, String email);
 	public String registerEditPopup(String userpwd);
 }
+ 

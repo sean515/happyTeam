@@ -21,7 +21,7 @@ public class RegisterServiceImpl implements RegisterService {
 	public RegisterDTO loginOk(String userid, String userpwd) {
 		return dao.loginOk(userid, userpwd);
 	}
-
+ 
 	@Override
 	public int idCheckCount(String userid) {
 		return dao.idCheckCount(userid);

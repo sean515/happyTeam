@@ -6,7 +6,7 @@
 <div class="container">
 	<h1>문의사항 리스트</h1>
 		<ul>
-			<li><hr class="hr3"/>
+			<li><hr class="hr3"/> 
 		   		커뮤니티 | &nbsp;질문 있습니다.<hr class="hr3"/>
 		   		레시피 | &nbsp;이 정보 확실한가요?<hr class="hr3"/>
 			</li>

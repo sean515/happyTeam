@@ -88,7 +88,7 @@
 <div class="container">
 	<br/><br/><h3>즐겨찾기</h3><hr class="hr1">
 	<form method="post" id="joinEditForm">
-		<ul>
+		<ul> 
 			<li>
 				<img src="img/restaurant_sample.jpg" width="200" height="200" align="left"/>
 				<button class="btn" id="btn" type="button" style="padding:0px; display: block; margin-left: auto;"><img class="img_btn" src="img/heart_icon.png" width="30" height="30" align="right"></button><br/>

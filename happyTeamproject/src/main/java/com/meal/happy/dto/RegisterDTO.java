@@ -11,7 +11,7 @@ public class RegisterDTO {
 	private String birthday;
 	
 	private String email;
-	
+	 
 	private String gender; // 성별
 	private String genderArr[];
 	
