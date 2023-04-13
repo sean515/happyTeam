@@ -23,7 +23,7 @@
 	#joinEditForm2 li{
 		text-align:right;
 		border-bottom:2px solid #ddd;
-	}
+	} 
 	#joinEditForm li:nth-child(2n){
 		width:80%;
 	}

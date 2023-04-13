@@ -23,7 +23,7 @@ import com.meal.happy.service.RegisterService;
 public class RegisterController {
 	@Autowired
 	RegisterService service;
-	
+	 
 	//로그인폼
 	@GetMapping("/loginForm")
 	public String login() {

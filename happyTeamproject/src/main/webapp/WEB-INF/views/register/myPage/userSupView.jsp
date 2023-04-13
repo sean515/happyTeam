@@ -11,4 +11,4 @@
 		   		레시피 | &nbsp;이 정보 확실한가요?<hr class="hr3"/>
 			</li>
 		</ul>
-</div>
+</div> 

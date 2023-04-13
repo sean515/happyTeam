@@ -26,7 +26,7 @@ public class RegisterServiceImpl implements RegisterService {
 	public int idCheckCount(String userid) {
 		return dao.idCheckCount(userid);
 	}
-
+ 
 	@Override
 	public List<ZipcodeDTO> zipSearch(String doroname) {
 		return dao.zipSearch(doroname);

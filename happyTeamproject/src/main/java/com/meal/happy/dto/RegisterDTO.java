@@ -27,7 +27,7 @@ public class RegisterDTO {
 				+ Arrays.toString(genderArr) + ", disease=" + disease + ", diseaseArr=" + Arrays.toString(diseaseArr)
 				+ ", writedate=" + writedate + "]";
 	}
-	
+	 
 	public String getUserid() {
 		return userid;
 	}

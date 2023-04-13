@@ -17,7 +17,7 @@
 				식당 위치 : 서울특별시 강남구 OO로<br/>&emsp;&emsp;&emsp;
 				대표 메뉴 : 단호박 샐러드<br/>&emsp;&emsp;&emsp;
 				운영 시간 : 11:00~21:00<br/><br/><hr class="hr3"/>
-				
+				 
 				<img src="../img/restaurant_sample.jpg" width="100" height="100" align="left"/>&emsp;&emsp;&emsp;
 				식당 이름 : 행복 샐러드<br/>&emsp;&emsp;&emsp;
 				식당 위치 : 서울특별시 강남구 OO로<br/>&emsp;&emsp;&emsp;

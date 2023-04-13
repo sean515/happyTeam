@@ -29,7 +29,7 @@
 			if($("#userpwd").val()==""){
 				alert("비밀번호를 입력하셔야 회원정보수정이 가능합니다.");
 				return false;
-			}
+			} 
 			// 닉네임
 			if($("#nickname").val()==""){
 				alert("닉네임은 필수 입력 사항입니다.");
