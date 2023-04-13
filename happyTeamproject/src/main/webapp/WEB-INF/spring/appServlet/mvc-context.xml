@@ -25,19 +25,13 @@
 			<mvc:mapping path="/joinEdit" />
 			<mvc:mapping path="/joinEditOk" />
 			
-			<mvc:mapping path="/board/boardWrite" />
-			<mvc:mapping path="/board/boardWriteOk" />
-			<mvc:mapping path="/board/boardEdit" />
-			<mvc:mapping path="/board/boardEditOk" />
-			<mvc:mapping path="/board/boardDel" />
-			
 			<mvc:mapping path="/data/dataWrite" />
 			<mvc:mapping path="/data/dataWriteOk" />
 			<mvc:mapping path="/data/dataEdit"/>
 			
 			<mvc:mapping path="/commentSend"/>
-			<mvc:mapping path="/answer/answerWrite"/>
-			<mvc:mapping path="/answer/answerReplyWrite/{no}"/>
+			<mvc:mapping path="/sup/supWrite"/>
+			<mvc:mapping path="/sup/supAnswer/{no}"/>
 			
 			<bean class="com.meal.happy.LoginInterceptor"></bean>
 		</mvc:interceptor>
