@@ -24,7 +24,7 @@
 				</c:if>
 				<c:if test="${logStatus=='Y'}">	
 					<li><a href="/happy/logout">로그아웃</a></li>
-					<li><a href="/happy/joinEdit">마이페이지</a></li>
+					<li><a href="/happy/myPage">마이페이지</a></li>
 				</c:if>
 				<li><a href="/happy/res">식당검색</a></li>
 				<li><a href="/happy/menu">식단</a></li>
