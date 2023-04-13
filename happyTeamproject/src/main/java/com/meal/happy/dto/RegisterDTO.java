@@ -17,8 +17,8 @@ public class RegisterDTO {
 	private String hobby;
 	private String hobbyArr[];
 	private String writedate;
-	
-	
+
+
 
 	@Override
 	public String toString() {
@@ -51,13 +51,13 @@ public class RegisterDTO {
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
-		
+
 		//전화번호를 - 기준으로 split한 다음 tel1, tel2, tel3에 대입한다.
 		String telCut[] = tel.split("-");
 		tel1 = telCut[0];
 		tel2 = telCut[1];
 		tel3 = telCut[2];
-		
+
 	}
 	public String getTel1() {
 		return tel1;
@@ -126,7 +126,7 @@ public class RegisterDTO {
 	public void setWritedate(String writedate) {
 		this.writedate = writedate;
 	}
-	
-	
+
+
 }
-	
+

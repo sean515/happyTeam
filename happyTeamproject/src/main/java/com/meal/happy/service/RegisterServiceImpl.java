@@ -16,7 +16,7 @@ public class RegisterServiceImpl implements RegisterService {
 	//    @AutoWired, @Inject : interface를 객체로 생성
 	@Inject
 	RegisterDAO dao;
-	
+
 	@Override
 	public RegisterDTO loginOk(String userid, String userpwd) {
 		return dao.loginOk(userid, userpwd);
