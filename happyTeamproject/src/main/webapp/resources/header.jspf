@@ -28,6 +28,7 @@
 		<div class="category" style="margin:0 10px;">
 			<a href="/happy/" class="logo">행복한끼</a>
 			<ul>
+				<li><a href="/happy/" class="logo">행복한끼</a></li>
 				<c:if test="${logStatus!='Y'}">
 					<li><a href="/happy/loginForm">로그인</a></li>
 				</c:if>
