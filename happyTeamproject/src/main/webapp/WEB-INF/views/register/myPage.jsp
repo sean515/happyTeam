@@ -19,7 +19,7 @@
 	#joinEditForm1 li{
 		text-align:left;
 		display:flex;
-	}
+	} 
 	#joinEditForm2 li{
 		text-align:right;
 		border-bottom:2px solid #ddd;

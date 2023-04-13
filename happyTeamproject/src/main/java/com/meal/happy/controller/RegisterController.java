@@ -28,7 +28,7 @@ public class RegisterController {
 	@GetMapping("/loginForm")
 	public String login() {
 		return "register/loginForm"; //WEB-INF/views/register/loginForm.jsp
-	}
+	} 
 	//로그인(DB)
 	@PostMapping("/loginOk")
 	public ModelAndView loginOk(String userid, String userpwd, HttpServletRequest request, HttpSession session) {

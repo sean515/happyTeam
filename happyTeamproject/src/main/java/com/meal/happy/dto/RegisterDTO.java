@@ -19,7 +19,7 @@ public class RegisterDTO {
 	private String diseaseArr[];
 	
 	private String writedate;
-	
+	 
 	@Override
 	public String toString() {
 		return "RegisterDTO [userid=" + userid + ", userpwd=" + userpwd + ", username=" + username + ", nickname="

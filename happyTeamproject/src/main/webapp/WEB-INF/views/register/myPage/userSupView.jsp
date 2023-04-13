@@ -10,5 +10,5 @@
 		   		커뮤니티 | &nbsp;질문 있습니다.<hr class="hr3"/>
 		   		레시피 | &nbsp;이 정보 확실한가요?<hr class="hr3"/>
 			</li>
-		</ul>
+		</ul> 
 </div>

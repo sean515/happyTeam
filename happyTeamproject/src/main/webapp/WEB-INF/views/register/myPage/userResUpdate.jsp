@@ -15,5 +15,5 @@
 		   		
 		   		삭제 | &nbsp;서울 강남구&nbsp; | &nbsp;샐러드 전문점&nbsp; | &nbsp;승인 대기 중<hr class="hr3"/>
 			</li>
-		</ul>
+		</ul> 
 </div>

@@ -17,7 +17,7 @@
 				조리방법 : 끓이기<br/>&emsp;&emsp;&emsp;
 				요리 종류 : 후식<br/>&emsp;&emsp;&emsp;
 				열량 : 205cal<br/><br/><hr class="hr3"/>
-				
+				 
 				<img src="../img/recipe_sample.jpg" width="100" height="100" align="left"/>&emsp;&emsp;&emsp;
 				레시피 이름 : 칼륨 듬뿍 고구마죽<br/>&emsp;&emsp;&emsp;
 				조리방법 : 끓이기<br/>&emsp;&emsp;&emsp;
