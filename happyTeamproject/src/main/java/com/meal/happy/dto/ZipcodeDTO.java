@@ -10,9 +10,9 @@ public class ZipcodeDTO {
 	private String dong;
 	private int bungi1;
 	private int bungi2;
-
-
-
+	
+	
+	
 	public String getZipcode() {
 		return zipcode;
 	}
@@ -67,6 +67,6 @@ public class ZipcodeDTO {
 	public void setBungi2(int bungi2) {
 		this.bungi2 = bungi2;
 	}
-
-
+	
+	
 }

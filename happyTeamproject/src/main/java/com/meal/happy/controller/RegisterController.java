@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.meal.happy.dto.RegisterDTO;
@@ -22,7 +23,7 @@ import com.meal.happy.service.RegisterService;
 public class RegisterController {
 	@Autowired
 	RegisterService service;
-
+	
 	//로그인폼
 	@GetMapping("/loginForm")
 	public String login() {
@@ -34,7 +35,7 @@ public class RegisterController {
 		//Session 객체 얻어오기
 		//매개변수로 HttpServletRequest request -> Session 구하기
 		//매개변수로 HttpSession session
-
+		
 		RegisterDTO dto = service.loginOk(userid, userpwd);
 		//dto -> null인 경우 선택레코드가 없다. - 로그인 실패
 		//       null이 아닌 경우 선택레코드 있다. - 로그인 성공
@@ -68,39 +69,39 @@ public class RegisterController {
 		//조회
 		//아이디의 갯수 구하기 - 0, 1
 		int result = service.idCheckCount(userid);
-
+		
 		//뷰에서 사용하기위해 모델에 셋팅
 		model.addAttribute("userid", userid);
 		model.addAttribute("result", result);
-
+		
 		return "register/idCheck";
 	}
 	//우편번호 검색
 	@RequestMapping(value="/zipcodeSearch", method=RequestMethod.GET)
 	public ModelAndView zipcodeSearch(String doroname) {
 		ModelAndView mav = new ModelAndView();
-
+		
 		//선택한 주소가 없으면 리턴은 null
 		List<ZipcodeDTO> zipList= null;
-
+		
 		if(doroname!=null) {
 			zipList= service.zipSearch(doroname);
 		}
-
+		
 		mav.addObject("zipList", zipList);
 		mav.setViewName("register/zipcodeSearch");
-
+		
 		return mav;
 	}
-
+	
 	@RequestMapping(value="/joinOk", method=RequestMethod.POST)
 	public ModelAndView joinOk(RegisterDTO dto) {
 		System.out.println(dto.toString());
-
+		
 		ModelAndView mav = new ModelAndView();
 		//회원가입
 		int result = service.registerInsert(dto);
-
+		
 		if(result>0) {//회원가입 성공시 - 로그인폼을 이동
 			mav.setViewName("redirect:loginForm");
 		}else {//회원가입 실패시
@@ -113,20 +114,20 @@ public class RegisterController {
 	@GetMapping("/joinEdit")
 	public ModelAndView joinEdit(HttpSession session) {
 		RegisterDTO dto = service.registerEdit((String)session.getAttribute("logId"));
-
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("dto", dto);
 		mav.setViewName("register/joinEdit");
-
+		
 		return mav;
 	}
 	//회원정보 수정(DB) - form의 내용과 session의 로그인 아이디를 구하여 회원정보를 수정한다.
 	@PostMapping("/joinEditOk")
 	public ModelAndView joinEditOk(RegisterDTO dto, HttpSession session) {
 		dto.setUserid((String)session.getAttribute("logId"));
-
+		
 		int cnt = service.registerEditOk(dto);
-
+		
 		ModelAndView mav = new ModelAndView();
 		if(cnt>0){//수정성공시 -> DB에서 수정된 내용을 보여주고
 			mav.setViewName("redirect:joinEdit");
@@ -141,5 +142,5 @@ public class RegisterController {
 	public String idSearchForm() {
 		return "register/idSearchForm";
 	}
-
+	
 }

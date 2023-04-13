@@ -29,7 +29,7 @@
 				<li><a href="/happy/res">식당검색</a></li>
 				<li><a href="/happy/menu">식단</a></li>
 				<li><a href="/happy/recipe">레시피</a></li>
-				<li><a href="/happy/comm_List">커뮤니티</a></li>
+				<li><a href="/happy/comm/comm_List">커뮤니티</a></li>
 				<li><a href="/happy/support">고객센터</a></li>
 			</ul>
 		</div>
