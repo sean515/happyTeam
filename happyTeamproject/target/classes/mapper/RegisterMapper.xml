@@ -10,21 +10,16 @@
 	<select id="idCheckCount" resultType="int">
 		select count(userid) cnt from register where userid=#{param1}
 	</select>
-	<select id="zipSearch" resultType="com.meal.happy.dto.ZipcodeDTO">
-		select zipcode, sido, doroname, build_num1, build_num2, buildname, dong, bungi1, bungi2 
-		from zipcode where doroname like '%${param1}%' order by doroname asc
-	</select>
 	<insert id="registerInsert">
-		insert into register(userid, userpwd, username, tel, email, zipcode, addr, addrdetail, hobby) 
-		values (#{userid}, #{userpwd}, #{username}, #{tel}, #{email}, #{zipcode}, #{addr}, #{addrdetail}, #{hobby})
+		insert into register(userid, userpwd, username, email, hobby) 
+		values (#{userid}, #{userpwd}, #{username}, #{email}, #{hobby})
 	</insert>
 	<select id="registerEdit" resultType="com.meal.happy.dto.RegisterDTO">
-		select userid, username, tel, email, zipcode, addr, addrdetail, hobby from register 
+		select userid, username, email, hobby from register 
 		where userid=#{param1}
 	</select>
 	<update id="registerEditOk">
-		update register set tel=#{tel}, email=#{email}, zipcode=#{zipcode}, addr=#{addr}, addrdetail=#{addrdetail}
-		, hobby=#{hobby} where userid=#{userid} and userpwd=#{userpwd}
+		update register set email=#{email}, hobby=#{hobby} where userid=#{userid} and userpwd=#{userpwd}
 	</update>
 	<select id="idSearch" resultType="string">
 		select rpad(substr(userid,1,length(userid)/2),

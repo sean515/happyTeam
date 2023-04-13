@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>행복한끼메인</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/happy/inc/style.css" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <!-- 폰트 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +18,8 @@
 <body>
 <header>
 		<div class="category">
-			<a href="/happy/" class="logo">행복한끼</a>
 			<ul>
+				<li><a href="/happy/" class="logo">행복한끼</a></li>
 				<c:if test="${logStatus!='Y'}">
 					<li><a href="/happy/loginForm">로그인</a></li>
 				</c:if>

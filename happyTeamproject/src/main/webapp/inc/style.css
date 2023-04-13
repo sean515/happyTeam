@@ -59,6 +59,13 @@ header{
 	height:40px;
 	line-height:40px;
 }
+.logContainer{
+	height:1000px;
+	margin:0 auto;
+	
+	
+	
+}
 
 /*푸터*/
 footer{

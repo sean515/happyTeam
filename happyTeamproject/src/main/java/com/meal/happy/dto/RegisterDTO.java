@@ -6,14 +6,7 @@ public class RegisterDTO {
 	private String userid;
 	private String userpwd;
 	private String username;
-	private String tel;
-	private String tel1;
-	private String tel2;
-	private String tel3;
 	private String email;
-	private String zipcode;
-	private String addr;
-	private String addrdetail;
 	private String hobby;
 	private String hobbyArr[];
 	private String writedate;
@@ -22,9 +15,7 @@ public class RegisterDTO {
 
 	@Override
 	public String toString() {
-		return "RegisterDTO [userid=" + userid + ", userpwd=" + userpwd + ", username=" + username + ", tel=" + tel
-				+ ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", email=" + email + ", zipcode=" + zipcode
-				+ ", addr=" + addr + ", addrdetail=" + addrdetail + ", hobby=" + hobby + ", hobbyArr="
+		return "RegisterDTO [userid=" + userid + ", userpwd=" + userpwd + ", username=" + username + ", email=" + email + ", hobby=" + hobby + ", hobbyArr="
 				+ Arrays.toString(hobbyArr) + ", writedate=" + writedate + "]";
 	}
 	public String getUserid() {
@@ -45,61 +36,12 @@ public class RegisterDTO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getTel() {
-		tel = tel1+"-"+tel2+"-"+tel3;
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-		
-		//전화번호를 - 기준으로 split한 다음 tel1, tel2, tel3에 대입한다.
-		String telCut[] = tel.split("-");
-		tel1 = telCut[0];
-		tel2 = telCut[1];
-		tel3 = telCut[2];
-		
-	}
-	public String getTel1() {
-		return tel1;
-	}
-	public void setTel1(String tel1) {
-		this.tel1 = tel1;
-	}
-	public String getTel2() {
-		return tel2;
-	}
-	public void setTel2(String tel2) {
-		this.tel2 = tel2;
-	}
-	public String getTel3() {
-		return tel3;
-	}
-	public void setTel3(String tel3) {
-		this.tel3 = tel3;
-	}
+	
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-	public String getAddrdetail() {
-		return addrdetail;
-	}
-	public void setAddrdetail(String addrdetail) {
-		this.addrdetail = addrdetail;
 	}
 	public String getHobby() {
 		//배열의 취미를 문자열을 바꿔 내보내기

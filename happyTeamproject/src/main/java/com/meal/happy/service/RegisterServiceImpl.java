@@ -28,11 +28,6 @@ public class RegisterServiceImpl implements RegisterService {
 	}
 
 	@Override
-	public List<ZipcodeDTO> zipSearch(String doroname) {
-		return dao.zipSearch(doroname);
-	}
-
-	@Override
 	public int registerInsert(RegisterDTO dto) {
 		return dao.registerInsert(dto);
 	}

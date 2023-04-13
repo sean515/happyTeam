@@ -3,12 +3,17 @@
 <style>
 	#logFrm input{
 		margin-bottom:50px;
-		width:90%;
+		width:60%;
 	}
+	.mb-3>input{
+		width:440px;
+	}
+	
 </style>
-<div class="container">
-	<h1>로그인</h1>
+<div class="logContainer">
+	
 	<form method="post" action="loginOk" id="logFrm">
+		<h1>로그인</h1>
 		<ul>
 			<li>아이디</li>
 			<li><input type="text" name="userid" id="userid"/></li>
