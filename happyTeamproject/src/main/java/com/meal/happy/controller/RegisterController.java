@@ -76,23 +76,6 @@ public class RegisterController {
 		
 		return "register/idCheck";
 	}
-	//우편번호 검색
-	@RequestMapping(value="/zipcodeSearch", method=RequestMethod.GET)
-	public ModelAndView zipcodeSearch(String doroname) {
-		ModelAndView mav = new ModelAndView();
-		
-		//선택한 주소가 없으면 리턴은 null
-		List<ZipcodeDTO> zipList= null;
-		
-		if(doroname!=null) {
-			zipList= service.zipSearch(doroname);
-		}
-		
-		mav.addObject("zipList", zipList);
-		mav.setViewName("register/zipcodeSearch");
-		
-		return mav;
-	}
 	
 	@RequestMapping(value="/joinOk", method=RequestMethod.POST)
 	public ModelAndView joinOk(RegisterDTO dto) {

@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style>
-	#joinForm{
-		width:60%;
-	}
 	#sideimg{
-		width:635px;
-		height:794px;
+		width:50%;
+		height:95%;
+		float:left;
+	}
+	.joinbox{
+		width:36%;
+		float:left;
+		margin-left:7%;
+		margin-right:7%;
+	}
+	#joinForm>h1{
+		text-align:center;
 	}
 	#joinForm ul{
 		overflow:auto;
@@ -18,6 +25,7 @@
 		padding:10px 0;
 		border-bottom:1px solid #ddd;
 		line-height:40px;
+		
 	}
 	#joinForm li:nth-child(2n){
 		width:80%;
@@ -25,19 +33,20 @@
 	#joinForm li:last-child{
 		width:100%;
 	}
-	#addr{width:80%;}
-	.signUpBtn{
+	
+	.signupBtn{
 		width:100%;
 		text-align:center;
 		margin-top:20px;
 	}
-	#signUpBtn{
+	#signupBtn{
 		width:40%;
 		height:60px;
 		font-size:1.2em;
 		background-color:#F7CE46;
 		border:none;
 		border-radius:30px;
+		
 	}
 </style>
 <script>
@@ -56,12 +65,7 @@
 		$("#userid").keyup(function(){
 			$("#idStatus").val("N");
 		});
-		
-		//우편번호 검색
-		$("#zipSearch").on('click',function(){
-			window.open("zipcodeSearch","zipcode","width=500, height=600");
-		});
-		
+
 		//유효성검사
 		$("#joinForm").submit(function(){
 			//아이디검사
@@ -99,13 +103,6 @@
 				alert("이름은 2~10글자까지 한글만 가능합니다.");
 				return false;
 			}
-			//전화번호
-			var tel = $("#tel1").val()+"-"+$("#tel2").val()+"-"+$("#tel3").val();
-			reg = /^(010|02|031|051|041)-[0-9]{3,4}-[0-9]{4}$/
-			if(!reg.test(tel)){
-				alert("전화번호를 잘못입력하였습니다.");
-				return false;
-			}
 			//이메일검사
 			//아이디는 5~12글자, @필수
 			reg = /^\w{6,15}@[a-zA-Z]{2,8}.[a-z]{2,5}(.[a-z]{2,5})?$/
@@ -129,11 +126,24 @@
 		});
 	});
 </script>
-<div class="container">
-	<img src="img/loginImg.png" id="sideimg">
-	<h1>회원가입 폼</h1>
+<div class="logContainer">
+	
+		<img src="img/loginImg.png" id="sideimg">
+	
+	<div class="joinbox">
 	<form method="post" id="joinForm">
+		<h1>회원가입</h1>
 		<ul>
+			<li>아이디</li>
+			<li>
+				<input type="text" name="userid" id="userid" minlength="5" maxlength="12" value="" placeholder="5~12자의 영문,숫자만 사용가능"/>
+				<input type="button" value="아이디중복검사"/>
+				<input type="hidden" id="idStatus" value="N"/>
+			</li>
+			<li>비밀번호</li>
+			<li><input type="password" name="userpwd" id="userpwd" minlength="8" maxlength="15"/></li>
+			<li>비밀번호확인</li>
+			<li><input type="password" name="userpwd2" id="userpwd2"/></li>
 			<li>이름</li>
 			<li><input type="text" name="username" id="username" minlength="2" maxlength="10"/></li>
 			<li>생년월일</li>
@@ -155,37 +165,6 @@
 					<option value="nate.com">nate</option>
 				</select>
 			</li>
-			<li>아이디</li>
-			<li>
-				<input type="text" name="userid" id="userid" minlength="5" maxlength="12" value="" placeholder="5~12자의 영문,숫자만 사용가능"/>
-				<input type="button" value="아이디중복검사"/>
-				<input type="hidden" id="idStatus" value="N"/>
-			</li>
-			<li>비밀번호</li>
-			<li><input type="password" name="userpwd" id="userpwd" minlength="8" maxlength="15"/></li>
-			<li>비밀번호확인</li>
-			<li><input type="password" name="userpwd2" id="userpwd2"/></li>
-			<li>연락처</li>
-			<li>
-				<select name="tel1" id="tel1">
-					<option value="010">010</option>
-					<option value="02">02</option>
-					<option value="031">031</option>
-					<option value="041">041</option>
-					<option value="051">051</option>
-				</select> -
-				<input type="text" name="tel2" id="tel2" maxlength="4"/> -
-				<input type="text" name="tel3" id="tel3" maxlength="4"/>
-			</li>
-			<li>우편번호</li>
-			<li>
-				<input type="text" name="zipcode" id="zipcode"/>
-				<input type="button" value="우편번호찾기" id="zipSearch"/>
-			</li>
-			<li>주소</li>
-			<li><input type="text" name="addr" id="addr"/></li>
-			<li>상세주소</li>
-			<li><input type="text" name="addrdetail" id="addrdetail"/></li>
 			<li>질병정보</li>
 			<li>
 				<input type="checkbox" name="hobbyArr" value="당뇨"/>당뇨
@@ -195,8 +174,9 @@
 				<input type="checkbox" name="hobbyArr" value="해당없음"/>해당없음
 			</li>
 		</ul>
-		<div class="signUpBtn">
-			<input type="submit" value="Sign up" id="signUpBtn"/>
+		<div class="signupBtn">
+			<input type="submit" value="Sign up" id="signupBtn"/>
 		</div>
 	</form>
+	</div>
 </div>
