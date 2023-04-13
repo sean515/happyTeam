@@ -177,7 +177,7 @@ public class RegisterController {
 	@GetMapping("/myPage/userWriteReply")
 	public String userWriteReplyForm() {
 		return "register/myPage/userWriteReply";
-	}
+	} 
 	// 식당 정보 업데이트
 	@GetMapping("/myPage/userResUpdate")
 	public String userResUpdateForm() {

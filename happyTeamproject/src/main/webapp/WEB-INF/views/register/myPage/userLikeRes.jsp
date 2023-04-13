@@ -5,7 +5,7 @@
 </style>
 <div class="container">
 	<h1>즐겨찾기한 식당 리스트</h1>
-		<ul>
+		<ul> 
 			<li><img src="../img/restaurant_sample.jpg" width="100" height="100" align="left"/>&emsp;&emsp;&emsp;
 				식당 이름 : 행복 샐러드<br/>&emsp;&emsp;&emsp;
 				식당 위치 : 서울특별시 강남구 OO로<br/>&emsp;&emsp;&emsp;

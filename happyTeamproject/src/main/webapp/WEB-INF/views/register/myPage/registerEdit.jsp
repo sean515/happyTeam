@@ -93,7 +93,7 @@
 			$("#registerEditForm").attr("action","registerEditOk");
 		});
 	});
-</script>
+</script> 
 <div class="container">
 	<h1>개인 정보 수정</h1><hr><br/>
 	<form method="post" id="registerEditForm">

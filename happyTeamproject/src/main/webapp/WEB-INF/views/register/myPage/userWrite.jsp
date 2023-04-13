@@ -9,7 +9,7 @@
 			<li><hr class="hr3"/>
 				커뮤니티 | &nbsp;관리자님 힘내세요.<hr class="hr3"/>
 				커뮤니티 | &nbsp;관리자님 힘내세요.<hr class="hr3"/><br/><hr class="hr3"/>
-				
+				 
 				식단&emsp;&ensp;&nbsp; | &nbsp;봄 당뇨 식단<hr class="hr3"/>
 				식단&emsp;&ensp;&nbsp; | &nbsp;봄 당뇨 식단<hr class="hr3"/><br/><hr class="hr3"/>
 				

@@ -5,7 +5,7 @@
 </style>
 <div class="container">
 	<h1>즐겨찾기한 식단 리스트</h1>
-		<ul>
+		<ul> 
 			<li><img src="../img/menu_sample.jpg" width="100" height="100" align="left"/>&emsp;&emsp;&emsp;
 				식단 이름 : 겨울 당뇨 식단<br/>&emsp;&emsp;&emsp;
 				아침 식단 : 흑미밥, 채접 맑은국, 꽈리고추찜 등<br/>&emsp;&emsp;&emsp;

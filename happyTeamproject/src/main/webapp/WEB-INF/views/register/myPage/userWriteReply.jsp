@@ -9,7 +9,7 @@
 			<li><hr class="hr3"/>
 		   		커뮤니티 | &nbsp;이거 먹고 건강해졌어요.<hr class="hr3"/>
 		   		커뮤니티 | &nbsp;이거 먹고 건강해졌어요.<hr class="hr3"/><br/><hr class="hr3"/>
-		   		
+		   		 
 			    식단&emsp;&ensp;&nbsp; | &nbsp;고혈압 환자도 먹어도 되나요?<hr class="hr3"/>
 			    식단&emsp;&ensp;&nbsp; | &nbsp;고혈압 환자도 먹어도 되나요?<hr class="hr3"/><br/><hr class="hr3"/>
 			    

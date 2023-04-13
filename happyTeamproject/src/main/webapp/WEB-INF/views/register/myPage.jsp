@@ -78,7 +78,7 @@
 	</form>
 	<form method="post" id="joinEditForm2">
 		<ul>
-			<li>
+			<li> 
 				<a href="/happy/myPage/registerEditPopup" onclick="window.open(this.href, '_blank', 'width=450, height=430'); return false;">수정</a> / 
 				<a href="/happy/myPage/registerEdit">개인정보 수정</a><br/><br/>
 			</li>
