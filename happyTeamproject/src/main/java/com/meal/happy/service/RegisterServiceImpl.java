@@ -52,4 +52,10 @@ public class RegisterServiceImpl implements RegisterService {
 		return dao.idSearch(username, email);
 	}
 
+	@Override
+	public String registerEditPopup(String userpwd) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

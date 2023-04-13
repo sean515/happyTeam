@@ -5,11 +5,24 @@
 		overflow:auto;
 	}
 	#joinEditForm li{
+		text-align:left;
 		float:left;
 		width:20%;
 		padding:10px 0;
-		border-bottom:1px solid #ddd;
+		display:block;
+		border-bottom:2px solid #ddd;
 		line-height:40px;
+	}
+	#joinEditForm3 li{
+		text-align:right;
+	}
+	#joinEditForm1 li{
+		text-align:left;
+		display:flex;
+	}
+	#joinEditForm2 li{
+		text-align:right;
+		border-bottom:2px solid #ddd;
 	}
 	#joinEditForm li:nth-child(2n){
 		width:80%;
@@ -18,101 +31,149 @@
 		width:100%;
 	}
 	#addr{width:80%;}
+	.hr1{
+		border:0;
+		height:2px;
+		background:black;
+	}
+	.hr2{
+		border:0;
+		height:1.5px;
+		background:#ddd;
+	}
+	.hr3{
+		border:0;
+		height:0.5px;
+		background:#ddd;
+	}
+	h1 { font-size:20px; float:center; margin:0 auto; }
+	.clear:after {content:""; display:block; clear:both; margin:0 auto;}
+	.fr { float:right; }
+	.fl { float:left; }
+	
+	.box { padding:10px; width:1000px; margin:0 auto; }
+	.fbox{ width:449px; height:300px; border:1px solid white; margin:0 auto;}
+	
+	.il_box { padding:20px; font-size:1; }
+	.il_box > div { display:inline-block; width:33.333%; margin:0 auto; }
+	.il_box > div > p { height:200px; border:1px solid #bbb; margin:0 auto; }
 </style>
 <script>
-	$(function(){
-		//우편번호 검색
-		$("#zipSearch").on('click',function(){
-			window.open("zipcodeSearch","zipcode","width=500, height=600");
-		});
-		
-		//유효성검사
-		$("#joinEditForm").submit(function(){
-			
-			//비밀번호
-			if($("#userpwd").val()==""){
-				alert("비밀번호를 입력하셔야 회원정보수정이 가능합니다.");
-				return false;
-			}
-			
-			//전화번호
-			var tel = $("#tel1").val()+"-"+$("#tel2").val()+"-"+$("#tel3").val();
-			reg = /^(010|02|031|051|041)-[0-9]{3,4}-[0-9]{4}$/
-			if(!reg.test(tel)){
-				alert("전화번호를 잘못입력하였습니다.");
-				return false;
-			}
-			//이메일검사
-			//아이디는 6~15글자, @필수
-			reg = /^\w{6,15}@[a-zA-Z]{2,8}.[a-z]{2,5}(.[a-z]{2,5})?$/
-			if(!reg.test($("#email").val())){
-				alert("이메일을 잘못입력하였습니다.");
-				return false;
-			}
-			//취미 2개이상 반드시 선택
-			var hobbyCount = 0;
-			$("input[name=hobbyArr]").each(function(){
-				if(this.checked==true)  hobbyCount++;
-			});
-			
-			if(hobbyCount<2){
-				alert("취미는 2개이상 선택하여야 합니다.");
-				return false;
-			}
-			
-			//form태그의 action속성 설정
-			$("#joinEditForm").attr("action","joinEditOk");
-		});
-	});
+	
 </script>
 <div class="container">
-	<h1>회원정보수정 폼</h1>
-	<form method="post" id="joinEditForm">
+	<h2>마이페이지</h2><br/>
+	<h3>개인정보</h3><hr class="hr1"/>
+	<form method="post" id="joinEditForm1">
 		<ul>
-			<li>아이디</li>
 			<li>
-				<input type="text" name="userid" id="userid" minlength="8" maxlength="15" value="${dto.userid}" readonly/>
-			</li>
-			<li>비밀번호</li>
-			<li><input type="password" name="userpwd" id="userpwd" minlength="8" maxlength="15"/></li>
-			<li>이름</li>
-			<li><input type="text" name="username" id="username" minlength="2" maxlength="10" value="${dto.username}" readonly/></li>
-			<li>연락처</li>
-			<li>
-				<select name="tel1" id="tel1">
-					<option value="010" <c:if test="${dto.tel1=='010'}">selected</c:if>>010</option>
-					<option value="02" <c:if test="${dto.tel1=='02'}">selected</c:if>>02</option>
-					<option value="031" <c:if test="${dto.tel1=='031'}">selected</c:if>>031</option>
-					<option value="041" <c:if test="${dto.tel1=='041'}">selected</c:if>>041</option>
-					<option value="051" <c:if test="${dto.tel1=='051'}">selected</c:if>>051</option>
-				</select> -
-				<input type="text" name="tel2" id="tel2" maxlength="4" value="${dto.tel2}"/> -
-				<input type="text" name="tel3" id="tel3" maxlength="4" value="${dto.tel3}"/>
-			</li>
-			<li>이메일</li>
-			<li><input type="text" name="email" id="email" value="${dto.email}"/></li>
-			<li>우편번호</li>
-			<li>
-				<input type="text" name="zipcode" id="zipcode" value="${dto.zipcode}"/>
-				<input type="button" value="우편번호찾기" id="zipSearch"/>
-			</li>
-			<li>주소</li>
-			<li><input type="text" name="addr" id="addr" value="${dto.addr}"/></li>
-			<li>상세주소</li>
-			<li><input type="text" name="addrdetail" id="addrdetail" value="${dto.addrdetail}"/></li>
-			<li>취미</li>
-			<li>
-				<input type="checkbox" name="hobbyArr" value="야구" <c:forEach var="h" items="${dto.hobbyArr}"><c:if test="${h=='야구'}">checked</c:if></c:forEach>/>야구
-				<input type="checkbox" name="hobbyArr" value="바이크" <c:forEach var="h" items="${dto.hobbyArr}"><c:if test="${h=='바이크'}">checked</c:if></c:forEach>/>바이크
-				<input type="checkbox" name="hobbyArr" value="등산" <c:forEach var="h" items="${dto.hobbyArr}"><c:if test="${h=='등산'}">checked</c:if></c:forEach>/>등산
-				<input type="checkbox" name="hobbyArr" value="쇼핑" <c:forEach var="h" items="${dto.hobbyArr}"><c:if test="${h=='쇼핑'}">checked</c:if></c:forEach>/>쇼핑
-				<input type="checkbox" name="hobbyArr" value="자전거" <c:forEach var="h" items="${dto.hobbyArr}"><c:if test="${h=='자전거'}">checked</c:if></c:forEach>/>자전거
-				<input type="checkbox" name="hobbyArr" value="걷기" <c:forEach var="h" items="${dto.hobbyArr}"><c:if test="${h=='걷기'}">checked</c:if></c:forEach>/>걷기
-				<input type="checkbox" name="hobbyArr" value="영화감상" <c:forEach var="h" items="${dto.hobbyArr}"><c:if test="${h=='영화감상'}">checked</c:if></c:forEach>/>영화감상
-			</li>
-			<li>
-				<input type="submit" value="회원정보수정하기"/>
+				<img src="img/user_icon.png" width="15%" height="15%"/>&emsp;&emsp;&emsp;
+				${dto.username}님 | ${dto.userid}<br/>&emsp;&emsp;&emsp;
+				${dto.gender}<br/>&emsp;&emsp;&emsp;
+				${dto.birthday}<br/>&emsp;&emsp;&emsp;
+				${dto.email}<br/>&emsp;&emsp;&emsp;
+				${dto.diseaseArr}<br/>&emsp;&emsp;&emsp;
 			</li>
 		</ul>
 	</form>
+	<form method="post" id="joinEditForm2">
+		<ul>
+			<li>
+				<a href="/happy/myPage/registerEditPopup" onclick="window.open(this.href, '_blank', 'width=450, height=430'); return false;">수정</a> / 
+				<a href="/happy/myPage/registerEdit">개인정보 수정</a><br/><br/>
+			</li>
+		</ul>
+	</form>
+</div>
+<div class="container">
+	<br/><br/><h3>즐겨찾기</h3><hr class="hr1">
+	<form method="post" id="joinEditForm">
+		<ul>
+			<li>
+				<img src="img/restaurant_sample.jpg" width="200" height="200" align="left"/>
+				<button class="btn" id="btn" type="button" style="padding:0px; display: block; margin-left: auto;"><img class="img_btn" src="img/heart_icon.png" width="30" height="30" align="right"></button><br/>
+				&emsp;&emsp;&emsp;
+				식당 이름 : 행복 샐러드
+				식당 위치 : 서울특별시 강남구 OO로<br/>&emsp;&emsp;&emsp;
+				대표 메뉴 : 단호박 샐러드<br/>&emsp;&emsp;&emsp;
+				운영 시간 : 11:00~21:00<br/>
+				<div style="text-align:right"><a href="/happy/myPage/userLikeRes">식당 즐겨찾기 더보기</a><hr class="hr2"/></div>
+				
+				<img src="img/menu_sample.jpg" width="200" height="200" align="left"/>
+				&emsp;&emsp;&emsp;
+				식단 이름 : 겨울 당뇨 식단<br/>&emsp;&emsp;&emsp;
+				아침 식단 : 흑미밥, 채접 맑은국, 꽈리고추찜 등<br/>&emsp;&emsp;&emsp;
+				점심 식단 : 현미밥, 소고기 샤브샤브, 박고지 묵은 김치 만두 등<br/>&emsp;&emsp;&emsp;
+				저녁 식단 : 수수밥, 비지찌개, 갈치구이 등<br/>
+				<div style="text-align:right"><a href="/happy/myPage/userLikeMenu">식단 즐겨찾기 더보기</a><hr class="hr2"/></div>
+				
+				<img src="img/recipe_sample.jpg" width="200" height="200" align="left"/>
+				&emsp;&emsp;&emsp;
+				레시피 이름 : 칼륨 듬뿍 고구마죽<br/>&emsp;&emsp;&emsp;
+				조리방법 : 끓이기<br/>&emsp;&emsp;&emsp;
+				요리 종류 : 후식<br/>&emsp;&emsp;&emsp;
+				열량 : 205cal<br/>
+				<div style="text-align:right"><a href="/happy/myPage/userLikeRecipe">레시피 즐겨찾기 더보기</a></div>
+			</li>
+		</ul>
+	</form>
+</div>
+
+<!-- 
+<div class="container">
+	<h3>모아보기</h3><hr class="hr1"> 
+</div>
+-->
+
+<div class="clear box">
+	<br/><br/>
+	<div class="fl fbox" >
+		<p>내가 작성한 글<hr class="hr1"/><br/>
+		   커뮤니티 | &nbsp;관리자님 힘내세요.<hr class="hr3"/>
+		   식단&emsp;&ensp;&nbsp; | &nbsp;봄 당뇨 식단<hr class="hr3"/>
+		   레시피&ensp;&nbsp; | &nbsp;누룽지 두부 계란죽
+		</p>
+		<ul>
+			<li>
+				<div style="text-align:right; padding:1em 0.5em; margin-right: 0.1em;"><a href="/happy/myPage/userWrite">내가 작성한 글 더보기</a><hr class="hr2"/></div>
+			</li>
+		</ul>
+	</div>
+	<div class="fr fbox">
+		<p>내가 작성한 댓글<hr class="hr1"/><br/>
+		   커뮤니티 | &nbsp;이거 먹고 건강해졌어요.<hr class="hr3"/>
+		   식단&emsp;&ensp;&nbsp; | &nbsp;고혈압 환자도 먹어도 되나요?<hr class="hr3"/>
+		   레시피&emsp; | &nbsp;오늘은 이거 먹어야겠어요.
+		</p>
+		<ul>
+			<li>
+				<div style="text-align:right; padding:1em 0.5em; margin-right: 0.1em;"><a href="/happy/myPage/userWriteReply">내가 작성한 댓글 더보기</a><hr class="hr2"/></div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- --------------------------------------------------------------------------------------- -->
+<div class="clear box">
+	<div class="fl fbox" >
+		<p>식당 업데이트 요청<hr class="hr1"/><br/>
+		   추가 | &nbsp;서울 관악구 | &nbsp;할랄푸드 전문점<hr class="hr3"/>
+		   수정 | &nbsp;서울 강남구 | &nbsp;샐러드 전문점
+		</p>
+		<ul>
+			<li>
+				<div style="text-align:right; padding:1em 0.5em; margin-right: 0.1em;"><a href="/happy/myPage/userResUpdate">내가 요청한 식당 더보기</a><hr class="hr2"/></div>
+			</li>
+		</ul>
+	</div>
+	<div class="fr fbox">
+		<p>문의사항<hr class="hr1"/><br/>
+		   커뮤니티 | &nbsp;질문 있습니다.<hr class="hr3"/>
+		   레시피&emsp; | &nbsp;이 정보 확실한가요?
+		</p>
+		<ul>
+			<li>
+				<div style="text-align:right; padding:1em 0.5em; margin-right: 0.1em;"><a href="/happy/myPage/userSupView">내가 문의한 내용 더보기</a><hr class="hr2"/></div>
+			</li>
+		</ul>
+	</div>
 </div>
