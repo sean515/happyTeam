@@ -13,7 +13,7 @@
 <div class="logContainer">
 	
 	<form method="post" action="loginOk" id="logFrm">
-		<h1>로그인</h1>
+		<h1>로그인!!!</h1>
 		<ul>
 			<li>아이디</li>
 			<li><input type="text" name="userid" id="userid"/></li>
