@@ -13,4 +13,5 @@ public interface RegisterService {
 	public RegisterDTO registerEdit(String userid);
 	public int registerEditOk(RegisterDTO dto);
 	public String idSearch(String username, String email);
+	public String registerEditPopup(String userpwd);
 }

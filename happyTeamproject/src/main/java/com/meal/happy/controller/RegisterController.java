@@ -76,6 +76,23 @@ public class RegisterController {
 		
 		return "register/idCheck";
 	}
+	//우편번호 검색
+	@RequestMapping(value="/zipcodeSearch", method=RequestMethod.GET)
+	public ModelAndView zipcodeSearch(String doroname) {
+		ModelAndView mav = new ModelAndView();
+		
+		//선택한 주소가 없으면 리턴은 null
+		List<ZipcodeDTO> zipList= null;
+		
+		if(doroname!=null) {
+			zipList= service.zipSearch(doroname);
+		}
+		
+		mav.addObject("zipList", zipList);
+		mav.setViewName("register/zipcodeSearch");
+		
+		return mav;
+	}
 	
 	@RequestMapping(value="/joinOk", method=RequestMethod.POST)
 	public ModelAndView joinOk(RegisterDTO dto) {
@@ -93,7 +110,7 @@ public class RegisterController {
 		}
 		return mav;
 	}
-	//회원정보 수정폼 - session 로그인 아이디에 해당하는 회원정보 select하여 뷰페이지로 이동
+	// 마이페이지 폼 - session 로그인 아이디에 해당하는 회원정보 select하여 뷰페이지로 이동
 	@GetMapping("/joinEdit")
 	public ModelAndView joinEdit(HttpSession session) {
 		RegisterDTO dto = service.registerEdit((String)session.getAttribute("logId"));
@@ -104,19 +121,30 @@ public class RegisterController {
 		
 		return mav;
 	}
+	// 개인정보 수정 폼 - session 로그인 아이디에 해당하는 회원정보 select하여 뷰페이지로 이동
+	@GetMapping("/myPage/registerEdit")
+	public ModelAndView registerEdit(HttpSession session) {
+		RegisterDTO dto = service.registerEdit((String)session.getAttribute("logId"));
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("dto", dto);
+		mav.setViewName("register/myPage/registerEdit");
+		
+		return mav;
+	}
 	//회원정보 수정(DB) - form의 내용과 session의 로그인 아이디를 구하여 회원정보를 수정한다.
-	@PostMapping("/joinEditOk")
-	public ModelAndView joinEditOk(RegisterDTO dto, HttpSession session) {
+	@PostMapping("/registerEditOk")
+	public ModelAndView registerEditOk(RegisterDTO dto, HttpSession session) {
 		dto.setUserid((String)session.getAttribute("logId"));
 		
 		int cnt = service.registerEditOk(dto);
 		
 		ModelAndView mav = new ModelAndView();
 		if(cnt>0){//수정성공시 -> DB에서 수정된 내용을 보여주고
-			mav.setViewName("redirect:joinEdit");
+			mav.setViewName("redirect:register");
 		}else {//수정실패시 -> 이전페이지 (알림)
 			mav.addObject("msg", "회원정보수정 실패하였습니다.");
-			mav.setViewName("register/joinOkResult");
+			mav.setViewName("register/registerOkResult");
 		}
 		return mav;
 	}
@@ -125,5 +153,44 @@ public class RegisterController {
 	public String idSearchForm() {
 		return "register/idSearchForm";
 	}
-	
+	// 즐겨찾는 식당
+	@GetMapping("/myPage/userLikeRes")
+	public String userLikeResForm() {
+		return "register/myPage/userLikeRes";
+	}
+	// 즐겨찾는 식단
+	@GetMapping("/myPage/userLikeMenu")
+	public String menuLikeListForm() {
+		return "register/myPage/userLikeMenu";
+	}
+	// 즐겨찾는 레시피
+	@GetMapping("/myPage/userLikeRecipe")
+	public String recipeLikeListForm() {
+		return "register/myPage/userLikeRecipe";
+	}
+	// 내가 작성한 글
+	@GetMapping("/myPage/userWrite")
+	public String userWriteForm() {
+		return "register/myPage/userWrite";
+	}
+	// 내가 작성한 댓글
+	@GetMapping("/myPage/userWriteReply")
+	public String userWriteReplyForm() {
+		return "register/myPage/userWriteReply";
+	}
+	// 식당 정보 업데이트
+	@GetMapping("/myPage/userResUpdate")
+	public String userResUpdateForm() {
+		return "register/myPage/userResUpdate";
+	}
+	// 문의사항
+	@GetMapping("/myPage/userSupView")
+	public String userSupViewForm() {
+		return "register/myPage/userSupView";
+	}
+	// 비밀번호 확인 팝업
+	@GetMapping("/myPage/registerEditPopup")
+	public String registerEditPopupForm(String userpwd, HttpServletRequest request, HttpSession session) {
+		return "register/myPage/registerEditPopup";
+	}
 }
